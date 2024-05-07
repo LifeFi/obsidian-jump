@@ -64,7 +64,7 @@ export function PeerSlidingInList({
 	direction,
 	isPeerJump,
 	isStart,
-}: PeerSlidingInListProps) {
+}: PeerSlidingInListProps): number {
 	const currentItem = list[currentIndex];
 	if (direction === -1) {
 		const previousItem = list[currentIndex - 1];
