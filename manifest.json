@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+	"id": "jump",
+	"name": "jump",
+	"version": "0.1.0",
+	"minAppVersion": "1.4.11",
+	"description": "Jump to same level H tags and List",
+	"author": "lifefi",
+	"authorUrl": "https://github.com/LifeFi",
+	"fundingUrl": "https://github.com/LifeFi",
+	"isDesktopOnly": true
 }
