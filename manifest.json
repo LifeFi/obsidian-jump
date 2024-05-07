@@ -1,7 +1,7 @@
 {
 	"id": "jump",
 	"name": "jump",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"minAppVersion": "1.4.11",
 	"description": "Jump to same level H tags and List",
 	"author": "lifefi",
