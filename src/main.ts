@@ -82,7 +82,7 @@ export default class JumpPlugin extends Plugin {
 			if (offset === -1) {
 				JumpToTarget(
 					editor,
-					nearestItemIndex === -1 || nearestItemIndex === 0
+					nearestItemIndex === -1
 						? 0
 						: jumpItems[nearestItemIndex].position.start.line
 				);
@@ -118,9 +118,9 @@ export default class JumpPlugin extends Plugin {
 					isStart: true,
 				});
 
-				console.log("filterdJumpItems: ", filterdJumpItems);
-				console.log("nearestItemIndex: ", nearestItemIndex);
-				console.log("slidingItemIndex: ", slidingItemIndex);
+				// console.log("filterdJumpItems: ", filterdJumpItems);
+				// console.log("nearestItemIndex: ", nearestItemIndex);
+				// console.log("slidingItemIndex: ", slidingItemIndex);
 
 				const previousItem = filterdJumpItems[slidingItemIndex];
 
@@ -136,9 +136,9 @@ export default class JumpPlugin extends Plugin {
 					isPeerJump: this.settings.peerJump,
 					isStart: true,
 				});
-				console.log("filterdJumpItems: ", filterdJumpItems);
-				console.log("nearestItemIndex: ", nearestItemIndex);
-				console.log("slidingItemIndex: ", slidingItemIndex);
+				// console.log("filterdJumpItems: ", filterdJumpItems);
+				// console.log("nearestItemIndex: ", nearestItemIndex);
+				// console.log("slidingItemIndex: ", slidingItemIndex);
 
 				const nextItem = filterdJumpItems[slidingItemIndex];
 
