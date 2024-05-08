@@ -12,7 +12,8 @@ I want to move my cusor like Excel `Ctrl + ↑ ↓ ← →`
 ![demo_excel](https://github.com/LifeFi/obsidian-jump/assets/102175174/15cfa945-a84b-454f-bde9-09101fb12daf)
 ![demo_excel](https://github.com/LifeFi/obsidian-jump/assets/102175174/f3c19c16-3af4-4ba0-bade-1a782fdf11cb)
 
-![demo_excel](https://imgur.com/a/aJJpeQJ)
+![demo_excel](https://i.imgur.com/Z0OwbAe.mp4)
+
 ## Features
 
 -   Jump to Same Level of Headings & List
