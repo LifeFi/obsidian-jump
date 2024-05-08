@@ -12,8 +12,8 @@ I want to move my cusor like Excel `Ctrl + ↑ ↓ ← →`
 ![demo_cusor_jump](https://github.com/LifeFi/obsidian-jump/assets/102175174/cef56709-1591-42fe-92fc-db6d2d2b6f49)
 
 
-## Features
+## Commands
 
--   Jump to Same Level of Headings & List
--   Jump to Upper/Lower Level of Headings & List
+-   Jump to Next / Jump to Previos ( Between same level )
+-   Jump to Lower Level / Jump to Upper Level
 
