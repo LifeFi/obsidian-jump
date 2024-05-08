@@ -1,4 +1,14 @@
-# Jump
+# Cusor Jump
+
+Quickly jump between list items and headings throughout same or upper/lower level.
+
+I want to move my cusor like Excel `Ctrl + ↑ ↓ ← →`
+
+## Demo
+
+![demo_excel](https://github.com/LifeFi/obsidian-jump/assets/102175174/00f451af-f01d-471f-b8e6-db9c1bf68007)
+
+## Features
 
 -   Jump to Same Level of Headings & List
 -   Jump to Upper/Lower Level of Headings & List
