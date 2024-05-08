@@ -70,6 +70,8 @@ export function jumpToWithSameLevel({
 			isPeerJump: settings.peerJump,
 			isStart: true,
 		});
+		console.log("nearestItemIndex: ", nearestItemIndex);
+		console.log("slidingItemIndex: ", slidingItemIndex);
 
 		const foundItem = filterdJumpItems[slidingItemIndex];
 
@@ -213,26 +215,23 @@ function PeerSlidingInList({
 		}
 	}
 
-	if (targetItem) {
-		if (
-			targetItem.position.start.line - currentItem.position.start.line ===
+	if (
+		targetItem &&
+		targetItem.position.start.line - currentItem.position.start.line ===
 			direction
-		) {
-			return PeerSlidingInList({
-				list,
-				currentIndex: currentIndex + direction,
-				direction,
-				isPeerJump,
-				isStart: false,
-			});
-		} else {
-			if (isStart) {
-				return currentIndex + direction;
-			} else {
-				return currentIndex;
-			}
-		}
+	) {
+		return PeerSlidingInList({
+			list,
+			currentIndex: currentIndex + direction,
+			direction,
+			isPeerJump,
+			isStart: false,
+		});
 	} else {
-		return -1;
+		if (isStart) {
+			return currentIndex + direction;
+		} else {
+			return currentIndex;
+		}
 	}
 }
