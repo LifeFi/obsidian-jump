@@ -21,10 +21,11 @@ export class JumpSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl("h2", { text: "Jump Settings" });
+		// containerEl.createEl("h2", { text: "Jump Settings" });
 
 		new Setting(containerEl)
-			.setName("Peer Jump ON/OFF")
+			.setName("Peer jump")
+			.setHeading()
 			.setDesc("Jumps to the last stuck item of the same level.")
 			.addToggle((toggle) => {
 				toggle
