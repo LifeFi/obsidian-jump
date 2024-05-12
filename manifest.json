@@ -1,7 +1,7 @@
 {
-	"id": "cusor-jump",
-	"name": "Cusor Jump",
-	"version": "0.1.4",
+	"id": "cursor-jump",
+	"name": "Cursor Jump",
+	"version": "0.1.5",
 	"minAppVersion": "1.4.11",
 	"description": "Quickly jump between list items and headings throughout same or upper/lower level",
 	"author": "Sangwon Jung",
