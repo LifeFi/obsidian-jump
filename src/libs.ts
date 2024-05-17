@@ -70,8 +70,8 @@ export function jumpToWithSameLevel({
 			isPeerJump: settings.peerJump,
 			isStart: true,
 		});
-		console.log("nearestItemIndex: ", nearestItemIndex);
-		console.log("slidingItemIndex: ", slidingItemIndex);
+		// console.log("nearestItemIndex: ", nearestItemIndex);
+		// console.log("slidingItemIndex: ", slidingItemIndex);
 
 		const foundItem = filterdJumpItems[slidingItemIndex];
 

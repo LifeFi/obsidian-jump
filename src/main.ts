@@ -2,8 +2,6 @@ import { Editor, MarkdownView, Plugin } from "obsidian";
 import { jumpToWithLevelChange, jumpToWithSameLevel } from "./libs";
 import { DEFAULT_SETTINGS, JumpSettingTab, JumpSettings } from "./settings_tab";
 
-// Remember to rename these classes and interfaces!
-
 export default class JumpPlugin extends Plugin {
 	settings: JumpSettings;
 
@@ -14,7 +12,7 @@ export default class JumpPlugin extends Plugin {
 
 		this.addCommand({
 			id: "jump-to-previous",
-			name: "Jump to Previous",
+			name: "Jump to previous",
 			editorCallback: (editor: Editor, view: MarkdownView) => {
 				jumpToWithSameLevel({
 					editor,
@@ -27,7 +25,7 @@ export default class JumpPlugin extends Plugin {
 
 		this.addCommand({
 			id: "jump-to-next",
-			name: "Jump to Next",
+			name: "Jump to next",
 			editorCallback: (editor: Editor, view: MarkdownView) => {
 				jumpToWithSameLevel({
 					editor,
@@ -39,8 +37,8 @@ export default class JumpPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: "jump-to-Upper-level",
-			name: "Jump to Upper Level",
+			id: "jump-to-upper-level",
+			name: "Jump to upper level",
 			editorCallback: (editor: Editor, view: MarkdownView) => {
 				jumpToWithLevelChange({
 					editor,
@@ -53,7 +51,7 @@ export default class JumpPlugin extends Plugin {
 
 		this.addCommand({
 			id: "jump-to-lower-level",
-			name: "Jump to Lower Level",
+			name: "Jump to lower level",
 			editorCallback: (editor: Editor, view: MarkdownView) => {
 				jumpToWithLevelChange({
 					editor,
