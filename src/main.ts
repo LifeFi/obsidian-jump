@@ -2,8 +2,19 @@ import { Editor, MarkdownView, Plugin } from "obsidian";
 import { jumpToWithLevelChange, jumpToWithSameLevel } from "./libs";
 import { DEFAULT_SETTINGS, JumpSettingTab, JumpSettings } from "./settings_tab";
 
+export interface PrevInfo {
+	tryCount: number;
+	prevDirection: number | null;
+	prevLine: number | null;
+}
+
 export default class JumpPlugin extends Plugin {
 	settings: JumpSettings;
+	prevInfo: PrevInfo = {
+		tryCount: 0,
+		prevDirection: null,
+		prevLine: null,
+	};
 
 	async onload() {
 		await this.loadSettings();
@@ -18,6 +29,7 @@ export default class JumpPlugin extends Plugin {
 					editor,
 					settings: this.settings,
 					app: this.app,
+					prevInfo: this.prevInfo,
 					direction: -1,
 				});
 			},
@@ -31,6 +43,7 @@ export default class JumpPlugin extends Plugin {
 					editor,
 					settings: this.settings,
 					app: this.app,
+					prevInfo: this.prevInfo,
 					direction: 1,
 				});
 			},

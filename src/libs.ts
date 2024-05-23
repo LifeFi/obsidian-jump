@@ -1,17 +1,33 @@
 import { App, Editor, Pos } from "obsidian";
 import { JumpSettings } from "./settings_tab";
+import { PrevInfo } from "./main";
 
 export function jumpToWithSameLevel({
 	editor,
 	settings,
 	app,
+	prevInfo,
 	direction,
 }: {
 	editor: Editor;
 	settings: JumpSettings;
 	app: App;
+	prevInfo: PrevInfo;
 	direction: -1 | 1;
 }) {
+	const currentPosition = editor.getCursor();
+
+	// prevInfo 초기화
+	if (
+		prevInfo.prevDirection !== direction ||
+		prevInfo.prevLine !== currentPosition.line
+	) {
+		prevInfo.tryCount = 0;
+		prevInfo.prevDirection = direction;
+		prevInfo.prevLine = currentPosition.line;
+	}
+	prevInfo.tryCount++;
+
 	const jumpItems = getJumpItems(app);
 
 	//  jumpItems가 존재하지 않으면, 문서 처음-끝으로 이동
@@ -25,7 +41,7 @@ export function jumpToWithSameLevel({
 	}
 
 	// jumpItems가 존재하는 경우
-	const currentPosition = editor.getCursor();
+
 	const currentItem = jumpItems.find(
 		(item) => item.position.start.line === currentPosition.line
 	);
@@ -55,16 +71,16 @@ export function jumpToWithSameLevel({
 	}
 	// 커서가 jumpItems에 놓여 있는 경우, 동일 Level 이 이동 범위.
 	else {
-		const filterdJumpItems = jumpItems.filter(
+		const filteredJumpItems = jumpItems.filter(
 			(item) => item.level === currentItem.level
 		);
 
-		const nearestItemIndex = filterdJumpItems.findLastIndex(
+		const nearestItemIndex = filteredJumpItems.findLastIndex(
 			(item) => item.position.start.line <= currentPosition.line
 		);
 
 		const slidingItemIndex = PeerSlidingInList({
-			list: filterdJumpItems as unknown as PeerSlidingInListItemProps[],
+			list: filteredJumpItems as unknown as PeerSlidingInListItemProps[],
 			currentIndex: nearestItemIndex,
 			direction,
 			isPeerJump: settings.peerJump,
@@ -73,12 +89,19 @@ export function jumpToWithSameLevel({
 		// console.log("nearestItemIndex: ", nearestItemIndex);
 		// console.log("slidingItemIndex: ", slidingItemIndex);
 
-		const foundItem = filterdJumpItems[slidingItemIndex];
+		const foundItem = filteredJumpItems[slidingItemIndex];
+		const shouldStop =
+			!settings.includeDocumentBoundaries ||
+			(settings.includeDocumentBoundaries &&
+				settings.threshHold !== 0 &&
+				prevInfo.tryCount <= settings.threshHold);
 
 		JumpToTarget(
 			editor,
 			foundItem
 				? foundItem.position.start.line
+				: shouldStop
+				? currentItem.position.start.line
 				: direction === -1
 				? 0
 				: editor.lastLine()
