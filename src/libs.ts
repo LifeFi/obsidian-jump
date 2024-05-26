@@ -130,10 +130,12 @@ export function jumpToWithLevelChange({
 		(item) => item.position.start.line === currentPosition.line
 	);
 	if (!currentItem) return;
+	const isHeading = currentItem.level < 11;
 
 	if (direction === -1) {
 		const nearestItemIndex = jumpItems.findLastIndex(
 			(item) =>
+				(isHeading ? item.level < 11 : item.level >= 11) &&
 				item.level < currentItem.level &&
 				item.position.start.line <= currentPosition.line
 		);
@@ -150,6 +152,7 @@ export function jumpToWithLevelChange({
 
 		const nearestItemIndex = jumpItems.findIndex(
 			(item, index) =>
+				(isHeading ? item.level < 11 : item.level >= 11) &&
 				index > currentItemIndex &&
 				item.level > currentItem.level &&
 				item.position.start.line > currentPosition.line
